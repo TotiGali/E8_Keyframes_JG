@@ -5,18 +5,35 @@
   --negre: #050315;
 }
 
-.caixa {
+.pilota {
   width: 300px;
   height: 300px; 
+  border-radius: 150px;
   background-color: var(--blau_fosc); 
   position: absolute;
-  top: 50%; 
+  top: 0; 
   left: 50%; 
-  transform: translate(-50%, -50%);
-  transition: background 2s, border-radius 1s;
+  transform: translateX(-50%);
+  animation: iryvenir 2s ease-in-out 3;
 }
 
-.caixa:hover {
-  background-color: var(--blau_accent); 
-  border-radius: 300px;
+@keyframes iryvenir {
+  0%, 100% {
+    top: 0;
+    height: 300px;
+    border-radius: 150px;
+  }
+  35%  {
+    height: 300px;
+    border-radius: 150px;
+  }
+  50% {
+    top: calc(100% - 230px);
+    height: 200px;
+    border-radius: 120px;
+  }
+  65%  {
+    height: 300px;
+    border-radius: 150px;
+  }
 }
