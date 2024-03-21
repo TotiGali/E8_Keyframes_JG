@@ -21,19 +21,26 @@
   0%, 100% {
     top: 0;
     height: 300px;
+    width: 300px;
     border-radius: 150px;
   }
   35%  {
     height: 300px;
+    width: 300px;
     border-radius: 150px;
+    background-color: var(--blau_fosc);
   }
   50% {
     top: calc(100% - 230px);
     height: 200px;
-    border-radius: 120px;
+    width: 320px;
+    border-radius: 180px 180px 120px 120px;
+    background-color: var(--blau_accent);
   }
   65%  {
     height: 300px;
+    width: 300px;
     border-radius: 150px;
+    background-color: var(--blau_fosc);
   }
 }
