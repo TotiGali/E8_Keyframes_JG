@@ -12,11 +12,20 @@
   position: absolute;
   top: 50%; 
   left: 50%; 
-  transform: translate(-50%, -50%);
-  transition: background 2s, border-radius 1s;
 }
 
 .caixa:hover {
-  background-color: var(--blau_accent); 
-  border-radius: 300px;
+  animation: girarIEscalar 1s linear infinite;
+}
+
+@keyframes girarIEscalar {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(2) rotate(45deg);
+  }
+  100% {
+    transform: scale(1) rotate(90deg);
+  }
 }
