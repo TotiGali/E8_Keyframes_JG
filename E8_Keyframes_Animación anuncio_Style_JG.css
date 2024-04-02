@@ -1,0 +1,72 @@
+:root {
+  --blau_fosc: #2f27ce;
+  --blau_accent: #902fcc;
+  --blanc: #fbfbfe;
+  --negre: #050315;
+}
+
+h1, h3 {
+  text-align: center;
+}
+
+@keyframes iryvenir {
+  0%, 100% {
+    top: 0;
+    height: 300px;
+    width: 300px;
+    border-radius: 150px;
+  }
+}
+
+/*header - encapçalament*/
+
+.item1 {
+  grid-area: A;
+  color: var(--blanc);
+  position: sticky;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
+  background-color: var(--fons_header);
+  border-radius: var(--border-radius);
+  z-index:2;
+  border: 5px dotted var(--blanc);
+}
+
+/*part central*/
+
+.item2 {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  grid-area:B;
+}
+
+/*footer*/
+
+.item3 {
+  grid-area: K;
+  color: var(--negre);
+}
+/*Definició de la graella de tota la pagina*/
+
+.item1 {
+  grid-area:A;
+}
+.item2 {
+  grid-area:B;
+}
+.item3 {
+  grid-area:C;
+}
+
+.grid-container-layout {
+  display: grid;
+  grid-template-areas:
+    "A A A" 
+    "B B B" 
+    "C C C" ; 
+  gap: 50px;
+  padding: 10px;
+}
+
+
+
