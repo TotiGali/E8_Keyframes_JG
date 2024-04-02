@@ -1,6 +1,7 @@
 :root {
   --blau_fosc: #2f27ce;
   --blau_accent: #902fcc;
+  --groc: #f8c207;
   --blanc: #fbfbfe;
   --negre: #050315;
 }
@@ -9,64 +10,139 @@ h1, h3 {
   text-align: center;
 }
 
-@keyframes iryvenir {
-  0%, 100% {
-    top: 0;
-    height: 300px;
-    width: 300px;
-    border-radius: 150px;
-  }
-}
-
 /*header - encapçalament*/
 
 .item1 {
   grid-area: A;
-  color: var(--blanc);
-  position: sticky;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
-  background-color: var(--fons_header);
-  border-radius: var(--border-radius);
+  color: var(--groc);
   z-index:2;
-  border: 5px dotted var(--blanc);
 }
 
 /*part central*/
 
 .item2 {
+  grid-area:B;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  grid-area:B;
+  position: relative;
+  animation: moverX 30s linear infinite;
+  z-index:-1;
+}
+
+.item3 {
+  grid-area:C;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  transition: transform 1s ease-in-out;
+}
+.item4 {
+  grid-area:D;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 /*footer*/
 
-.item3 {
-  grid-area: K;
+.item5 {
+  grid-area: E;
   color: var(--negre);
 }
+
+
 /*Definició de la graella de tota la pagina*/
 
-.item1 {
-  grid-area:A;
-}
-.item2 {
-  grid-area:B;
-}
-.item3 {
-  grid-area:C;
-}
-
 .grid-container-layout {
+  grid-area:E;
   display: grid;
   grid-template-areas:
     "A A A" 
     "B B B" 
-    "C C C" ; 
+    "C C C"
+    "D D D"
+    "E E E"; 
   gap: 50px;
   padding: 10px;
 }
 
+/*Definició de moviment persona*/
 
+.persona{
+  position: absolute;
+  animation: moverX 4s linear infinite, moverY 0.6s ease-in-out infinite;
+  z-index: 3;
+}
 
+/*Definició de moviment cotxes*/
+
+.traffic {
+  position: relative; 
+  width: 500px;
+  height: 300px;
+  overflow: hidden;
+}
+
+.traffic .cotxe, .traffic .cotxe_back {
+  position: absolute; 
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  transition: transform 1s ease-in-out;
+}
+
+.traffic .cotxe_back {
+  transform: rotateY(-180deg);
+  background-image: url("Imatges/car&driver.jpg");
+  z-index:1;
+}
+
+.traffic .cotxe {
+  background-image: url("Imatges/car.jpg");
+  z-index:2;
+}
+
+/*
+.cotxe_back img {
+  position: absolute; /* Fa que la imatge es pugui posicionar en relació amb l'element pare 
+  opacity: 0;
+  transition: opacity 10s ease-in-out;
+}
+*/
+
+/* capitol hovers */
+
+/* .traffic:hover {
+  transform: rotateY(180deg); /* gira   180 graus en eix Y
+}  */
+
+.traffic:hover .cotxe {
+  transform: rotateY(180deg);
+}
+
+.traffic:hover .cotxe_back {
+  transform: rotateY(0deg);
+}
+
+/* capitol animacions */
+
+@keyframes moverX {
+  0% {
+    left: -100px;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes moverY {
+  0%, 100% {
+    top: 0;
+  }
+  50% {
+    top: calc(100% - 600px);
+  }
+}
